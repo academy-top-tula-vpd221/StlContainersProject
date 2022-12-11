@@ -4,10 +4,11 @@
 #include <vector>
 #include <deque>
 #include <forward_list>
+#include<algorithm>
 
 using namespace std;
 
-class User
+/*class User
 {
     string name;
     int age;
@@ -36,107 +37,73 @@ ostream& operator<<(ostream& out, forward_list<T>& l)
     out << "\n";
     return out;
 }
+*/
+void print_array(const array<float, 10> item )
+{
+    for(auto itet:item)
+    cout << itet;
+    cout << "\n";
+}
+void sort_length(array<float, 10> item, int begin, int end)
+{
+    if (begin < 0 || end >= item.size()) 
+    {
+        cout << "out of range!\n";
+        return;
+    }
+  
+        sort(item.begin() + begin, item.begin() + end);
+
+    
+ 
+}
+template<typename T1,T2 >
+class MyClass<T1,T2>:vector<T,int>
+{
+
+public:
+   
+    void SayHi()
+    {
+        cout << "Hi\n";
+   }
+};
 
 int main()
 {
-    srand(time(nullptr));
-
-    /*
-    string s = "ABCDEF";
-
-    array<float, 10> array;
-    array.fill(5.5);
-
-    //vector<User> users;
-
-    vector<int> vectInt2 = { 1, 2, 3, 4, 5 };
-
-    vector<int> vectInt;
-    
-    for (int i = 0; i < 10; i++)
-        vectInt.push_back(rand() % 100);
-
-    cout << vectInt;
-    cout << vectInt.size() << " " << vectInt.capacity() << "\n";
-    vectInt.shrink_to_fit();
-    cout << vectInt.size() << " " << vectInt.capacity() << "\n";
-    vectInt.reserve(5);
-    cout << vectInt.size() << " " << vectInt.capacity() << "\n";
-    
-    int value = 55;
-    vectInt.insert(vectInt.begin() + 4, 55);
-    vectInt.insert(vectInt.begin() + 2, vectInt2.begin() + 1, vectInt2.begin() + 4);
-    cout << vectInt;
-    vectInt.insert(vectInt.begin() + 6, array.begin() + 1, array.begin() + 4);
-    cout << vectInt;
-    vectInt.insert(vectInt.begin() + 6, s.begin() + 1, s.begin() + 4);
-    cout << vectInt;
-    cout << vectInt.size() << " " << vectInt.capacity() << "\n";
-    vectInt.resize(9);
-    cout << vectInt.size() << " " << vectInt.capacity() << "\n";
-    cout << vectInt;
-    vectInt.resize(20);
-    cout << "----------\n";
-    cout << vectInt;
-    cout << vectInt2;
-    vectInt.swap(vectInt2);
-    cout << vectInt;
-    cout << vectInt2;
-    swap(vectInt, vectInt2);
-    cout << vectInt;
-    cout << vectInt2;
-    cout << "----------\n";
-    //erase(vectInt, 5);
-    erase_if(vectInt, [](auto item) { return item < 50; });
-    cout << vectInt;
-    try
-    {
-        cout << vectInt.at(5) << "\n";
-    }
-    catch (...)
-    {
-        cout << "error\n";
-    }
-    
-    deque<User> users;
-    users.push_back(User("Bob", 45));
-    users.emplace_back("Joe", 33);
+    /*vector <int> v1{10,17,17,12,45};
+    for (int a : v1)
+        cout << a << " ";
+    cout << endl;
+    v1.resize(3);
+    for (int a : v1)
+        cout << a << " ";
+    cout << endl;
+    cout << v1.capacity() << " " << v1.size();
+    v1.shrink_to_fit();
+    cout << "\n";
+    cout << v1.capacity() << " " << v1.size()<<endl;
+    v1.push_back(1);
+    v1.push_back(10);
+    v1.push_back(13);
+    cout << v1.capacity() << " " << v1.size()<<endl;
+    v1.push_back(34);
+    cout << v1.capacity() << " " << v1.size()<<endl;
+    v1.shrink_to_fit();
+    v1.resize(10);
+    cout << v1.capacity() << " " << v1.size() << endl;
+    for (int a : v1)
+        cout << a << " ";
+    cout << endl;
     */
+    MyClass<int> m1;
+    m1.SayHi();
+    
+
+    
+    
+    
 
 
-    forward_list<int> fl1 = { 5, 4, 1, 2, 9 };
-    forward_list<int> fl2 = { 8, 5, 3, 10, 2, 6, 9 };
-
-    auto it1 = fl1.begin();
-    it1++;
-    fl1.insert_after(it1, 11);
-    cout << fl1;
-    fl1.erase_after(++it1);
-    cout << fl1;
-    cout << fl2;
-    fl1.sort();
-    fl2.sort();
-    cout << fl1;
-    cout << fl2;
-    //fl1.merge(fl2);
-    cout << "----------\n";
-    cout << fl1;
-    cout << fl2;
-
-    auto it2 = fl2.begin();
-    it2++;
-    auto it3 = fl2.begin();
-    it3++; it3++; it3++; it3++; it3++;
-    fl1.splice_after(++fl1.begin(), fl2, it2, it3);
-    //fl1.splice_after(++fl1.begin(), fl2);
-    cout << fl1;
-    cout << fl2;
-    fl1.sort();
-    fl1.merge(fl2);
-
-    forward_list<int> fl3{ 1, 1, 2, 2, 1, 3, 3, 3, 3, 6, 1 };
-    fl3.sort();
-    cout << fl3;
-    fl3.unique();
-    cout << fl3;
+ 
 }
